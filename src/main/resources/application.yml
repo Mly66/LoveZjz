@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /LoveZjz
+spring:
+  application:
+    name: LoveZjz
+  mvc:
+    dispatch-options-request: true
+  main:
+    allow-bean-definition-overriding: true
+dataSource:
+  driverClassName: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3306/lovezjz?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=Asia/Shanghai
+  username: root
+  password: root
+  initialSize: 5
+  minIdle: 5
+  maxActive: 10
+  maxWait: 60000
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 300000
+  poolPreparedStatements: false
+  timeBetweenLogStatsMillis: 0
+  filters: mergeStat
+  connectionProperties: druid.stat.logSlowSql=true;druid.stat.slowSqlMillis=3000;keepAlive=true
+  validationQuery: select 1
+  testOnBorrow: false
+  testOnReturn: false
+  testWhileIdle: true
+  connectionErrorRetryAttempts: 3
+  timeBetweenConnectErrorMillis: 30000
+  breakAfterAcquireFailure: true
+logging:
+  config: classpath:logback-local.xml
+  file:
+    path: ./logs
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
